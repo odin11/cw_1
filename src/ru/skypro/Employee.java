@@ -9,17 +9,17 @@ public class Employee {
     private int department;
 
     //task2
-    public int id;
-    public int countID;
+    private int id;                                                      //fixed
+    static int countId;                                                //???
 
     //task3
     public Employee(String fullName, int department, int salary) {
         this.fullName = fullName;
         this.department = department;
         this.salary = salary;
-        //this.id = id;
-        //this.countID = countID;
+        this.id = countId++;                                               //fixed
     }
+
 
 
 
@@ -34,7 +34,7 @@ public class Employee {
         return this.id;
     }
     public int getCountID() {
-        return this.countID;
+        return this.countId;
     }
     public int getDepartment() {
         return this.department;
@@ -52,23 +52,24 @@ public class Employee {
         this.id = id;
     }
     public void setCountID() {
-        this.countID = countID;
+        this.countId = countId;
     }
     public void setDepartment() {
         this.department = department;
     }
 
     //task8a
-    public static Employee addEmployee(String fullName, int department, int salary){
+    /*public static Employee addEmployee(String fullName, int department, int salary){
         Employee a = new Employee(fullName, department, salary);
         return a;
     }
 
+
     public static void listEmployee (Employee[] arr){
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i].toString());
+            System.out.println(arr[i]);
         }
-    }
+    }*/
 
     @Override
     public String toString() {
@@ -78,8 +79,10 @@ public class Employee {
                 ", salary=" + salary;
     }
 
+
+
     //task8be
-    public static void salaryCap (Employee[] arr) {
+    /*public static void getSalarySum (Employee[] arr) {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             sum = sum + arr[i].salary;
@@ -88,12 +91,12 @@ public class Employee {
         System.out.println("salaryCap = " + sum);
         System.out.println("averageSalary = " + averageSalary); //task8e
         //return sum;
-    }
+    }*/
 
     //task8cd
-    public static void findPoorAndRichMan (Employee[] arr) {
+    /*public static void findPoorAndRichMan (Employee[] arr) {
         int min = arr[0].getSalary();
-        int max = 0;
+        int max = arr[0].getSalary();                   //fixed
         int current = 0;
         String whomin = "";
         String whomax = "";
@@ -101,24 +104,24 @@ public class Employee {
             current = arr[i].getSalary();
             if (current > max) {
                 max = current;
-                whomax = arr[i].getFullName();
+                //whomax = arr[i].getFullName();
+                whomax = arr[i].toString();             //fixed
             }
             if (current < min) {
                 min = current;
-                whomin = arr[i].getFullName();
-
+                //whomin = arr[i].getFullName();
+                whomin = arr[i].toString();             //fixed
             }
         }
         System.out.println("whomax = " + whomax);
         System.out.println("whomin = " + whomin);
-    }
+    }*/
 
     //task8f
-    public static void listEmployeeFullName (Employee[] arr){
+    /*public static void listEmployeeFullName (Employee[] arr){
+        System.out.println("\nсписок ФИО всех сотрудников");
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i].getFullName().toString());
+            System.out.println(arr[i].getFullName());
         }
-    }
-
-
+    }*/
 }
